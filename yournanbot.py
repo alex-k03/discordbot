@@ -12,13 +12,10 @@ async def on_ready():
     print("Running on " + bot.user.name)
     print("With ID " + bot.user.id)
 
-@bot.command(pass_context=True)
-async def commandhelp(ctx):
-    await bot.say("Available commands: \n greeting \n doashit \n rolldie \n timedate \n time")
 
 @bot.command(pass_context=True)
 async def greeting(ctx):
-    await bot.say("Hello!")
+    await bot.say("Hello! :shake:")
 
 @bot.command(pass_context=True)
 async def rolldie(ctx):
@@ -31,6 +28,23 @@ async def timedate(ctx):
 @bot.command(pass_context =True)
 async def doashit(ctx):
     await bot.say(":poop:" * 100)
+
+@bot.command(pass_context = True)
+async def join(ctx):
+    channel = ctx.message.author.voice.voice_channel
+    await bot.join_voice_channel(channel)
+
+@bot.command(pass_context = True)
+async def leave(ctx):
+    for x in bot.voice_clients:
+        if(x.server == ctx.message.server):
+            return await x.disconnect()
+
+
+@bot.command(pass_context = True)
+async def doggo(ctx):
+    await bot.say("https://giphy.com/gifs/dog-shiba-inu-typing-mCRJDo24UvJMA")
+
 
 @bot.command(pass_context=True)
 async def time(ctx):
@@ -60,4 +74,20 @@ async def time(ctx):
 
     await bot.say("It is" + str(a) + str(hour))
 
-bot.run("TOKEN")
+@bot.command(pass_context=True)
+async def bothelp(ctx):
+    channel = ctx.message.channel
+    embed = discord.Embed(title = "",
+                         desc = "A pussy destroying mad lad. COMMANDS:",
+                         colour = discord.Colour.red())
+    embed.set_author(name = "Your Nan", icon_url = "https://cdn.discordapp.com/attachments/258630960017309696/484431520669630477/images.png")
+    embed.add_field(name = "- greeting", value = "Says hello because you're a lonely fucker.\n", inline = True)
+    embed.add_field(name = "- rolldie", value = "Generates a random die roll\n", inline = False)
+    embed.add_field(name = "- commandhelp", value = "give you help\n", inline = True)
+    embed.add_field(name = "- timedate", value = "Outputs the exact time and date.\n", inline = False)
+    embed.add_field(name = "- doashit", value = " It's in the name.\n", inline = False)
+    embed.add_field(name = "- time", value = "Gives the time.\n", inline = True)
+
+    await bot.send_message(channel, embed = embed)
+
+bot.run("NDg0MzE5Mzk5NzE3ODk2MjEy.DmhzIA.ZK_oq9SCy3hHXGEQZnzCWoGVbRU")
