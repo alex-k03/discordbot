@@ -7,7 +7,6 @@ from time import strftime
 
 bot = commands.Bot(command_prefix='-')
 
-
 @bot.event
 async def on_ready():
     print("Running on " + bot.user.name)
@@ -41,7 +40,9 @@ async def time(ctx):
     if hour > 12:
         hour = hour - 12
 
-    if minutes > 7 and minutes < 12:
+    if minutes < 7:
+        a = ' '
+    elif minutes > 7 and minutes < 12:
         a = ' ten past '
     elif minutes > 13 and minutes < 22:
         a = ' quarter past '
@@ -50,11 +51,12 @@ async def time(ctx):
     elif minutes > 43 and minutes < 47:
         a = ' quarter to '
         hour = hour + 1
-    elif minutes > 48 and minutes < 59:
+    elif minutes > 48 and minutes < 55:
         a = ' ten to '
         hour = hour + 1
     else:
-        a = ''
+        a = ' '
+        hour = hour + 1
 
     await bot.say("It is" + str(a) + str(hour))
 
