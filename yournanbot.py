@@ -58,4 +58,4 @@ async def time(ctx):
 
     await bot.say("It is" + str(a) + str(hour))
 
-bot.run("NDg0MzE5Mzk5NzE3ODk2MjEy.DmgSLw.JQMm6f6mFV4zydIKjimi7FgQq6I")
+bot.run("TOKEN")
