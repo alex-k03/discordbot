@@ -5,7 +5,7 @@ import random
 from datetime import datetime
 from time import strftime
 
-bot = commands.Bot(command_prefix='///')
+bot = commands.Bot(command_prefix='-')
 
 
 @bot.event
@@ -15,7 +15,7 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def commandhelp(ctx):
-    await bot.say("Available commands: \n greeting \n rolldie \n timedate \n time")
+    await bot.say("Available commands: \n greeting \n doashit \n rolldie \n timedate \n time")
 
 @bot.command(pass_context=True)
 async def greeting(ctx):
@@ -41,16 +41,16 @@ async def time(ctx):
     if hour > 12:
         hour = hour - 12
 
-    if minutes > 10 and minutes < 15:
+    if minutes > 7 and minutes < 12:
         a = ' ten past '
-    elif minutes > 15 and minutes < 30:
+    elif minutes > 13 and minutes < 22:
         a = ' quarter past '
-    elif minutes > 30 and minutes < 45:
+    elif minutes > 23 and minutes < 42:
         a = ' half past '
-    elif minutes > 45 and minutes < 50:
+    elif minutes > 43 and minutes < 47:
         a = ' quarter to '
         hour = hour + 1
-    elif minutes > 50 and minutes < 59:
+    elif minutes > 48 and minutes < 59:
         a = ' ten to '
         hour = hour + 1
     else:
