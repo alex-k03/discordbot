@@ -1,11 +1,11 @@
 import discord
 from discord.ext import commands
-from discord.ext import Bot
+from discord.ext.commands import Bot
 import asyncio
 import time
 
 
-bot = commands.bot(command.prefix='#')
+bot = commands.Bot(command_prefix='#')
 
 #when the bot is ready this will run
 @bot.event
