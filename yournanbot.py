@@ -9,12 +9,12 @@ from commands import admin
 
 bot = commands.Bot(command_prefix='-')
 
-extensions = ['commands.admin', 'commands/comms', 'commands/standard']
+extensions = ['commands.admin', 'commands.comms', 'commands.standard', 'commands.help']
 
 @bot.event
 async def on_ready():
     print("Running on " + bot.user.name)
-    print("With ID " + bot.user.id)
+    print("With ID " + str(bot.user.id))
 
 
 @bot.command(pass_context=True)
