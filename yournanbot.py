@@ -53,7 +53,7 @@ async def doggo(ctx):
 async def load(extension):
     for extension in extensions:
         try:
-            bot.load_extention(extension)
+            bot.load_extension(extension)
             print('Loaded {}'.format(extension))
 
         except Exception as e:
@@ -63,8 +63,8 @@ async def load(extension):
 async def unload(extension):
     for extension in extensions:
         try:
-            bot.load_extention(extension)
-            print('Loaded {}'.format(extension))
+            bot.load_extension(extension)
+            print('Unloaded {}'.format(extension))
 
         except Exception as e:
             print('{} cannot be loaded. [{}]'.format(extension, e))
@@ -72,7 +72,7 @@ async def unload(extension):
 if __name__ == '__main__':
     for extension in extensions:
         try:
-            bot.load_extention(extension)
+            bot.load_extension(extension)
 
         except Exception as e:
             print('{} cannot be loaded. [{}]'.format(extension, e))

@@ -1,4 +1,5 @@
 from discord.ext import commands
+import discord
 
 class admin():
 
@@ -7,8 +8,9 @@ class admin():
 
     #adds this method to commands as a command
     @commands.command(pass_context = True)
-    async def bothelp(ctx):
-        channel = ctx.message.channel
+    async def bothelp(self, ctx):
+
+        bot = commands.Bot(command_prefix='-')
         embed = discord.Embed(title = "",
                              desc = "A pussy destroying mad lad. COMMANDS:",
                              color = discord.Colour(0xFFFF00))
@@ -20,7 +22,7 @@ class admin():
         embed.add_field(name = "-doashit", value = " It's in the name.\n", inline = False)
         embed.add_field(name = "-time", value = "Gives the time.\n", inline = True)
 
-        await bot.send_message(channel, embed = embed)
+        await ctx.send(embed = embed)
 
 def setup(bot):
     bot.add_cog(admin(bot))
