@@ -13,8 +13,8 @@ class comms():
 
     @commands.command(pass_contex=True)
     async def leave(self, ctx):
-        for x in bot.voice_clients:
-            if(x.server == ctx.message.server):
+        for x in self.bot.voice_clients:
+            if(x.guild == ctx.message.guild):
                 return await x.disconnect()
 
 def setup(bot):
