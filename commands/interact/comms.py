@@ -7,15 +7,17 @@ class comms():
         self.bot = bot
 
     @commands.command(pass_context = True)
-    async def join(ctx):
+    async def join(self, ctx):
         channel = ctx.message.author.voice.voice_channel
         await bot.join_voice_channel(channel)
 
     @commands.command(pass_context = True)
-    async def leave(ctx):
+    async def leave(self, ctx):
         for x in bot.voice_clients:
             if(x.server == ctx.message.server):
                 return await x.disconnect()
+
+
 
 
 def setup(bot):

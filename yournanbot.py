@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from discord.voice_client import VoiceClient
+#from discord.voice_client import VoiceClient
 import asyncio
 import random
 from datetime import datetime
@@ -14,6 +14,10 @@ extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.help.
 async def on_ready():
     print("Running on " + bot.user.name)
     print("With ID " + str(bot.user.id))
+
+@bot.event
+async def on_member_join():
+    ctx.send('Welcome', discord.Member)
 
 @bot.command()
 async def load(extension):
