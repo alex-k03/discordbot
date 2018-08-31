@@ -5,7 +5,7 @@ class admin():
 
     def __init__(self, bot):
         self.bot = bot
-
+"""
     #adds this method to commands as a command
     @commands.command(pass_context = True)
     async def bothelp(self, ctx):
@@ -23,6 +23,6 @@ class admin():
         embed.add_field(name = "-time", value = "Gives the time.\n", inline = True)
 
         await ctx.send(embed = embed)
-
+"""
 def setup(bot):
     bot.add_cog(admin(bot))
