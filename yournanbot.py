@@ -1,29 +1,21 @@
 import discord
 from discord.ext import commands
-from discord.voice_client import VoiceClient
+#from discord.voice_client import VoiceClient
 import asyncio
 import random
 from datetime import datetime
 from time import strftime
 
-from commands import admin
+from commands.owner import admin
 
 bot = commands.Bot(command_prefix='-')
 
-<<<<<<< HEAD
-extensions = ['commands.admin', 'commands.comms', 'commands.standard', 'commands.help']
-=======
-extensions = ['commands.admin', 'commands.comms', 'commands.standard']
->>>>>>> 08d50e1d9d4d9490aff6c5973088446b2e060394
+extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.owner.standard', 'commands.help.help']
 
 @bot.event
 async def on_ready():
     print("Running on " + bot.user.name)
     print("With ID " + str(bot.user.id))
-<<<<<<< HEAD
-
-=======
->>>>>>> 08d50e1d9d4d9490aff6c5973088446b2e060394
 
 @bot.command(pass_context=True)
 async def greeting(ctx):
@@ -43,7 +35,7 @@ async def doashit(ctx):
 
 #@bot.command(pass_context = True)
 #async def join(ctx):
-#    channel = ctx.message.author.voice.voice_channel
+#    channel = ctx.message.author.voice_channel
 #    await bot.join_voice_channel(channel)
 
 #@bot.command(pass_context = True)
