@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.voice_client import VoiceClient
 import asyncio
 import random
 from datetime import datetime
@@ -9,13 +10,12 @@ from commands import admin
 
 bot = commands.Bot(command_prefix='-')
 
-extensions = ['commands.admin', 'commands/comms', 'commands/standard']
+extensions = ['commands.admin', 'commands.comms', 'commands.standard']
 
 @bot.event
 async def on_ready():
     print("Running on " + bot.user.name)
-    print("With ID " + bot.user.id)
-
+    print("With ID " + str(bot.user.id))
 
 @bot.command(pass_context=True)
 async def greeting(ctx):
@@ -33,16 +33,16 @@ async def timedate(ctx):
 async def doashit(ctx):
     await bot.say(":poop:" * 100)
 
-@bot.command(pass_context = True)
-async def join(ctx):
-    channel = ctx.message.author.voice.voice_channel
-    await bot.join_voice_channel(channel)
+#@bot.command(pass_context = True)
+#async def join(ctx):
+#    channel = ctx.message.author.voice.voice_channel
+#    await bot.join_voice_channel(channel)
 
-@bot.command(pass_context = True)
-async def leave(ctx):
-    for x in bot.voice_clients:
-        if(x.server == ctx.message.server):
-            return await x.disconnect()
+#@bot.command(pass_context = True)
+#async def leave(ctx):
+#    for x in bot.voice_clients:
+#        if(x.server == ctx.message.server):
+#            return await x.disconnect()
 
 
 @bot.command(pass_context = True)
