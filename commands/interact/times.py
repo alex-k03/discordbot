@@ -1,18 +1,17 @@
 from discord.ext import commands
-import discord
 from datetime import datetime
 from time import strftime
 
-class time():
+class times():
 
     def __init__(self, bot):
         self.bot = bot
 
-    @bot.command(pass_context=True)
+    @commands.command(pass_context=True)
     async def timedate(self, ctx):
         await ctx.send(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
-    @bot.command(pass_context=True)
+    @commands.command(pass_context=True)
     async def time(self, ctx):
         hour = int(datetime.now().strftime('%H'))
         minutes = int(datetime.now().strftime('%M'))
@@ -41,4 +40,4 @@ class time():
         await ctx.send("It is" + str(a) + str(hour))
 
 def setup(bot):
-    bot.add_cog(time(bot))
+    bot.add_cog(times(bot))
