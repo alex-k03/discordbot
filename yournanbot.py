@@ -14,6 +14,13 @@ extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.help.
 async def on_ready():
     print("Running on " + bot.user.name)
     print("With ID " + str(bot.user.id))
+<<<<<<< HEAD
+
+@bot.event
+async def on_member_join():
+    ctx.send('Welcome', discord.Member)
+=======
+>>>>>>> f2aaf95ffb7b3a453bedb18b08519edddaf52c86
 
 @bot.command()
 async def load(extension):
