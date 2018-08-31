@@ -19,19 +19,19 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def greeting(ctx):
-    await bot.say("Hello! :shake:")
+    await ctx.send("Hello! :shake:")
 
 @bot.command(pass_context=True)
 async def rolldie(ctx):
-    await bot.say(random.randint(1,6))
+    await ctx.send(random.randint(1,6))
 
 @bot.command(pass_context=True)
 async def timedate(ctx):
-    await bot.say(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    await ctx.send(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 
 @bot.command(pass_context =True)
 async def doashit(ctx):
-    await bot.say(":poop:" * 100)
+    await ctx.send(":poop:" * 100)
 
 #@bot.command(pass_context = True)
 #async def join(ctx):
@@ -47,7 +47,7 @@ async def doashit(ctx):
 
 @bot.command(pass_context = True)
 async def doggo(ctx):
-    await bot.say("https://giphy.com/gifs/dog-shiba-inu-typing-mCRJDo24UvJMA")
+    await ctx.send("https://giphy.com/gifs/dog-shiba-inu-typing-mCRJDo24UvJMA")
 
 @bot.command()
 async def load(extension):
@@ -107,7 +107,7 @@ async def time(ctx):
         a = ' '
         hour = hour + 1
 
-    await bot.say("It is" + str(a) + str(hour))
+    await ctx.send("It is" + str(a) + str(hour))
 
 
 
