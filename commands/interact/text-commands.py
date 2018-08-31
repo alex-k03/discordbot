@@ -7,11 +7,11 @@ class text-commands():
 
     @bot.command(pass_context=True)
     async def greeting(ctx):
-        await bot.say("Hello! :shake:")
+        await ctx.send("Hello! :shake:")
 
     @bot.command(pass_context=True)
     async def rolldie(ctx):
-        await bot.say(random.randint(1,6))
+        await ctx.send(random.randint(1,6))
 
 def setup(bot):
     bot.add_cog(text-commands(bot))
