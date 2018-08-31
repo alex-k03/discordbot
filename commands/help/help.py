@@ -2,10 +2,7 @@ import discord
 from discord.ext import commands
 import asyncio
 
-#overwrites the help function to make it more suited to the applcation
-
-class CannotPaginate(Exception):
-    pass
+#overwrites the help function to make it more suited to the application
 
 class help():
 
