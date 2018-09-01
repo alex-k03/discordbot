@@ -1,4 +1,5 @@
 from discord.ext import commands
+import random
 
 class text_commands():
 
