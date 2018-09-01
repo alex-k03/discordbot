@@ -8,6 +8,10 @@ from time import strftime
 
 bot = commands.Bot(command_prefix='-')
 
+my_file = open("..\\key.txt", "r")
+TOKEN = my_file.read()
+my_file.close()
+
 extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.help.help', 'commands.interact.text-commands', 'commands.interact.times', 'commands.owner.priv', 'commands.owner.standard']
 
 @bot.event
@@ -49,4 +53,4 @@ if __name__ == '__main__':
 
 
 
-bot.run("NDg0MzE5Mzk5NzE3ODk2MjEy.DmhzIA.ZK_oq9SCy3hHXGEQZnzCWoGVbRU")
+bot.run(TOKEN)
