@@ -2,13 +2,17 @@ import discord
 from discord.ext import commands
 #from discord.voice_client import VoiceClient
 import asyncio
-import random
-from datetime import datetime
-from time import strftime
+import os
 
 bot = commands.Bot(command_prefix='-')
 
-my_file = open("..\\key.txt", "r")
+players = {}
+
+if os.system == 'windows':
+    my_file = open("..\\key.txt", "r")
+else:
+    print("macOS")
+    my_file = open("..\\key.rtf", "r")
 TOKEN = my_file.read()
 my_file.close()
 
@@ -32,6 +36,13 @@ async def load(extension):
 
         except Exception as e:
             print('{} cannot be loaded. [{}]'.format(extension, e))
+
+@bot.command(pass_context = True)
+async def play(ctx, url):
+    server = ctx.message.server
+    voice_client = client.voice_client_in(server)
+    player = await voice_client.creates_ytdl_player(url)
+    players[server.id] = player
 
 @bot.command()
 async def unload(extension):

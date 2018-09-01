@@ -9,8 +9,8 @@ class help():
         self.bot = bot
 
     #adds this method to commands as a command
-    @commands.command(pass_context = True)
-    async def bothelp(self, ctx):
+    @commands.group(pass_context = True)
+    async def help(self, ctx):
 
         embed = discord.Embed(title = "", desc = "A pussy destroying mad lad. COMMANDS:", color = discord.Colour(0xFFFF00))
         embed.set_author(name = "Your Nan", icon_url = "https://cdn.discordapp.com/attachments/258630960017309696/484431520669630477/images.png")
@@ -24,6 +24,12 @@ class help():
         message = await ctx.send(embed = embed)
         await message.add_reaction(u"\u2B05")
         await message.add_reaction(u"\u27A1")
+
+    #@bothelp.command(aliases=['page2', 'music'])
+    #async def musichelp(self, ctx):
+
+
+
 
 
 def setup(bot):
