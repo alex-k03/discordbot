@@ -5,13 +5,8 @@ import asyncio
 import random
 from datetime import datetime
 from time import strftime
-import os
 
 bot = commands.Bot(command_prefix='-')
-
-my_file = open("..\\key.pem", "r")
-TOKEN = my_file.read()
-my_file.close()
 
 extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.help.help', 'commands.interact.text-commands', 'commands.interact.times', 'commands.owner.priv', 'commands.owner.standard']
 
@@ -53,4 +48,5 @@ if __name__ == '__main__':
             print('{} cannot be loaded. [{}]'.format(extension, e))
 
 
-bot.run(TOKEN)
+
+bot.run("NDg0MzE5Mzk5NzE3ODk2MjEy.DmhzIA.ZK_oq9SCy3hHXGEQZnzCWoGVbRU")
