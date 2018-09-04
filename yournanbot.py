@@ -2,14 +2,16 @@ import discord
 from discord.ext import commands
 #from discord.voice_client import VoiceClient
 import asyncio
-
+import platform
 import os
 
 bot = commands.Bot(command_prefix='-')
 
 players = {}
-
-f = open('key.txt', 'r')
+if platform.system() == 'Windows':
+    f = open('key.txt', 'r')
+else:
+    f = open('key.rtf', 'r')
 TOKEN = f.read()
 TOKEN = TOKEN.strip()
 
