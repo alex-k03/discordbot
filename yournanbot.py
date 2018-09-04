@@ -9,7 +9,7 @@ bot = commands.Bot(command_prefix='-')
 
 players = {}
 
-f = open('.gitignore', 'r')
+f = open('key.txt', 'r')
 TOKEN = f.read()
 TOKEN = TOKEN.strip()
 
