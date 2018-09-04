@@ -2,19 +2,16 @@ import discord
 from discord.ext import commands
 #from discord.voice_client import VoiceClient
 import asyncio
+
 import os
 
 bot = commands.Bot(command_prefix='-')
 
 players = {}
 
-if os.system == 'windows':
-    my_file = open("..\\key.txt", "r")
-else:
-    print("macOS")
-    my_file = open("..\\key.rtf", "r")
-TOKEN = my_file.read()
-my_file.close()
+f = open('.gitignore', 'r')
+TOKEN = f.read()
+TOKEN = TOKEN.strip()
 
 extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.help.help', 'commands.interact.text-commands', 'commands.interact.times', 'commands.owner.priv', 'commands.owner.standard']
 
