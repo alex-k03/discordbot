@@ -10,6 +10,7 @@ class comms():
     async def join(self, ctx):
         channel = ctx.message.author.voice.channel
         await channel.connect(timeout=60.0, reconnect=True)
+        return channel
 
     @commands.command(pass_contex=True)
     async def leave(self, ctx):

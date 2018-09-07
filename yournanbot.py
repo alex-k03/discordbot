@@ -5,7 +5,9 @@ import asyncio
 import platform
 import os
 
+print(os.getcwd())
 bot = commands.Bot(command_prefix='-')
+bot.remove_command('help')
 
 players = {}
 if platform.system() == 'Windows':
@@ -37,11 +39,15 @@ async def load(extension):
             print('{} cannot be loaded. [{}]'.format(extension, e))
 
 @bot.command(pass_context = True)
-async def play(ctx, url):
-    server = ctx.message.server
-    voice_client = client.voice_client_in(server)
-    player = await voice_client.creates_ytdl_player(url)
-    players[server.id] = player
+async def play(ctx):
+    #server = ctx.message.guild
+    #voice_client = bot.guild_voice_client_in(server)
+    ##player = await voice_client.creates_ytdl_player(url)
+    #players[server.id] = player
+    #player.start()
+    channel = ctx.message.author.voice.channel
+    voice = await channel.connect(timeout=60.0, reconnect=True)
+    voice.play(discord.FFmpegPCMAudio('ringtone.mp3'), after=lambda e: print('done', e))
 
 @bot.command()
 async def unload(extension):
