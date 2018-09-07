@@ -4,6 +4,7 @@ from discord.ext import commands
 import asyncio
 import platform
 import os
+import time
 
 print(os.getcwd())
 bot = commands.Bot(command_prefix='-')
@@ -48,6 +49,23 @@ async def play(ctx):
     channel = ctx.message.author.voice.channel
     voice = await channel.connect(timeout=60.0, reconnect=True)
     voice.play(discord.FFmpegPCMAudio('ringtone.mp3'), after=lambda e: print('done', e))
+
+@bot.command(pass_context = True)
+async def spamplay(ctx):
+    #server = ctx.message.guild
+    #voice_client = bot.guild_voice_client_in(server)
+    #player = await voice_client.creates_ytdl_player(url)
+    #players[server.id] = player
+    #player.start()
+    count = 1
+    while count != 10:
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect(timeout=60.0, reconnect=True)
+        voice.play(discord.FFmpegPCMAudio('ringtone.mp3'), after=lambda e: print('done', e))
+        time.sleep(5)
+        for x in bot.voice_clients:
+            if(x.guild == ctx.message.guild):
+                return await x.disconnect()
 
 @bot.command()
 async def unload(extension):
