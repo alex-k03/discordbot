@@ -5,6 +5,7 @@ import asyncio
 import platform
 import os
 import time
+import youtube_dl
 
 print(os.getcwd())
 bot = commands.Bot(command_prefix='-')
@@ -22,6 +23,8 @@ extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.help.
 
 @bot.event
 async def on_ready():
+    game = discord.Game("type -help")
+    await bot.change_presence(status=discord.Status.idle, activity=game)
     print("Running on " + bot.user.name)
     print("With ID " + str(bot.user.id))
 
