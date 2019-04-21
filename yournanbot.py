@@ -24,13 +24,13 @@ extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.help.
 @bot.event
 async def on_ready():
     game = discord.Game("type -help")
-    await bot.change_presence(status=discord.Status.idle, activity=game)
+    await bot.change_presence(status=discord.Status.invisible, activity=game)
     print("Running on " + bot.user.name)
     print("With ID " + str(bot.user.id))
 
-@bot.event
-async def on_member_join():
-    ctx.send('Welcome', discord.Member)
+#@bot.event
+#async def on_member_join():
+#    ctx.send('Welcome', discord.Member)
 
 @bot.command()
 async def load(extension):
@@ -41,6 +41,18 @@ async def load(extension):
 
         except Exception as e:
             print('{} cannot be loaded. [{}]'.format(extension, e))
+
+@bot.command(pass_context = True)
+async def move(ctx, a, b):
+    for x in ctx.message.guild.members:
+        if x.id == int(a):
+            for c in ctx.message.guild.channels:
+                if c.id == int(b):
+                    channelafk = c
+            try:
+                await x.move_to(channelafk,reason=None)
+            except:
+                pass
 
 @bot.command(pass_context = True)
 async def play(ctx):
