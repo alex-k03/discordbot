@@ -1,7 +1,7 @@
 from discord.ext import commands
 import random
 
-class text_commands():
+class text_commands(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot

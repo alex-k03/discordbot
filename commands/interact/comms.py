@@ -1,7 +1,7 @@
 from discord.ext import commands
 import time
 #this is for the bot to make communications with the user
-class comms():
+class comms(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot

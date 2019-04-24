@@ -3,7 +3,7 @@ from discord.ext import commands
 import asyncio
 
 #overwrites the help function to make it more suited to the application
-class help():
+class help(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
