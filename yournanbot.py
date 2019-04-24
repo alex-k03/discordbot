@@ -12,9 +12,9 @@ bot = commands.Bot(command_prefix='-')
 bot.remove_command('help')
 
 players = {}
-if platform.system() == 'Windows':
+try:
     f = open('key.txt', 'r')
-else:
+except:
     f = open('key.rtf', 'r')
 TOKEN = f.read()
 TOKEN = TOKEN.strip()
