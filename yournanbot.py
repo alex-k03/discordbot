@@ -6,6 +6,12 @@ import platform
 import os
 import time
 import youtube_dl
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+chatbot = ChatBot('Your Nan')
+trainer = ChatterBotCorpusTrainer(chatbot)
+trainer.train("chatterbot.corpus.english")
 
 print(os.getcwd())
 bot = commands.Bot(command_prefix='-')
@@ -31,6 +37,10 @@ async def on_ready():
 #@bot.event
 #async def on_member_join():
 #    ctx.send('Welcome', discord.Member)
+@bot.command()
+async def talk(ctx, *, arg1):
+    await ctx.send(chatbot.get_response(str(arg1)))
+
 
 @bot.command()
 async def load(extension):
