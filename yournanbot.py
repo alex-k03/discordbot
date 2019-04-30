@@ -30,7 +30,7 @@ extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.help.
 @bot.event
 async def on_ready():
     game = discord.Game("type -help")
-    await bot.change_presence(status=discord.Status.invisible, activity=game)
+    await bot.change_presence(status=discord.Status.online, activity=game)
     print("Running on " + bot.user.name)
     print("With ID " + str(bot.user.id))
 
