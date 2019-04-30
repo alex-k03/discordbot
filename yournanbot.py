@@ -6,12 +6,6 @@ import platform
 import os
 import time
 import youtube_dl
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
-
-chatbot = ChatBot('Your Nan')
-trainer = ChatterBotCorpusTrainer(chatbot)
-trainer.train("chatterbot.corpus.english")
 
 print(os.getcwd())
 bot = commands.Bot(command_prefix='-')
@@ -25,7 +19,7 @@ except:
 TOKEN = f.read()
 TOKEN = TOKEN.strip()
 
-extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.help.help', 'commands.interact.text-commands', 'commands.interact.times', 'commands.owner.priv', 'commands.owner.standard']
+extensions = ['commands.owner.admin', 'commands.interact.comms', 'commands.help.help', 'commands.interact.text-commands', 'commands.interact.times', 'commands.owner.priv', 'commands.owner.standard', 'commands.dialog.response']
 
 @bot.event
 async def on_ready():
@@ -37,10 +31,6 @@ async def on_ready():
 #@bot.event
 #async def on_member_join():
 #    ctx.send('Welcome', discord.Member)
-@bot.command()
-async def talk(ctx, *, arg1):
-    await ctx.send(chatbot.get_response(str(arg1)))
-
 
 @bot.command()
 async def load(extension):
