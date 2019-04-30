@@ -1,3 +1,4 @@
+#legacy bot, last version compatible with windows
 import discord
 from discord.ext import commands
 #from discord.voice_client import VoiceClient
